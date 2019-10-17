@@ -1,16 +1,26 @@
 import React from "react";
-import TransactionEntry from "./transaction-entry/transaction-entry";
+import Transaction from "./transaction/transaction";
 
 import "./transactions-list.scss";
 
 const TransactionsList = ({ transactions }) => {
-  console.log("transactions:", transactions);
+  const transactionList = transactions.map(transaction => {
+    return <Transaction key={transaction.id} transaction={transaction} />;
+  });
 
-  const transactionList = transactions.map(transaction => (
-    <TransactionEntry transaction={transaction} />
-  ));
-
-  return <div className="transactions-list">{transactionList}</div>;
+  return (
+    <div className="transactions-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody className="transactions-entries">{transactionList}</tbody>
+      </table>
+    </div>
+  );
 };
 
 export default TransactionsList;

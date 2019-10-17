@@ -1,3 +1,17 @@
-.transactions-list{
-  border: 1px solid #abadb3; //ABADB3;
+.transactions-list {
+  background: #ffffff;
+  border: 1px solid #abadb3;
+  margin: 45px 0 10px 0;
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid #e5e5e5;
+    height: 50px;
+    text-align: center;
+    width: 200px;
+  }
 }

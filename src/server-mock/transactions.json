@@ -1,9 +1,11 @@
 [
   {
+    "id": 1,
     "description": "bread",
     "amount": 20
   },
   {
+    "id": 2,
     "description": "shoes",
     "amount": 5000
   }
