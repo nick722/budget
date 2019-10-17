@@ -6,6 +6,10 @@ Application to keep track of personal's income and expenses.
 - Current money balance should be shown
 - There should be categories for transactions
 
+Features to implement:
+
+- Loading
+
 TECHNOLOGIES:
 
 - Redux
@@ -13,8 +17,11 @@ TECHNOLOGIES:
 - Node/express api
 - CSS Grid
 
-Todo:
+Technologies to use:
 
+- Promises
+- Async/Await
+- Try/Catch
 - Formik
 - Router
 - Server-side rendering
