@@ -15,6 +15,7 @@ TECHNOLOGIES:
 - Redux
 - Redux-thunk
 - Node/express api
+- Axios
 - CSS Grid
 
 Technologies to use:
