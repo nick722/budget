@@ -9,6 +9,7 @@ Application to keep track of personal's income and expenses.
 Features to implement:
 
 - Loading
+- Authorization
 
 TECHNOLOGIES:
 
@@ -30,3 +31,6 @@ Technologies to use:
 - React context
 - React hooks
 - Storybook
+- Http headers
+- Cookies
+- Local/Session Storage
