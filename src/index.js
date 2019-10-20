@@ -8,7 +8,11 @@ import "./index.css";
 ReactDOM.render(
   <Provider
     store={createStore({
-      transactions: [{ id: 3, description: "radish", amount: "20" }]
+      transactions: {
+        transactions: [{ id: 3, description: "radish", amount: "20" }],
+        loading: false,
+        error: null
+      }
     })}
   >
     <App />

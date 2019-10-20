@@ -3,7 +3,7 @@ import Transaction from "./transaction/transaction";
 
 import "./transactions-list.scss";
 
-const TransactionsList = ({ transactions }) => {
+const TransactionsList = ({ transactions: { transactions } }) => {
   const transactionList = transactions.map(transaction => {
     return <Transaction key={transaction.id} transaction={transaction} />;
   });
