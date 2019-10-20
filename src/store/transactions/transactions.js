@@ -7,7 +7,7 @@ export const success = data => ({ type: FETCH_SUCCESS, payload: data });
 export default (state = [], action = {}) => {
   switch (action.type) {
     case FETCH_SUCCESS:
-      return [...state, action.payload];
+      return [...state, ...action.payload];
     default:
       return state;
   }
