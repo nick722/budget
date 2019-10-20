@@ -21,11 +21,17 @@ class Transactions extends Component {
     return (
       <div className="transactions">
         <BalancePane />
-        <TransactionsList transactions={transactions} />
+        <TransactionsList transactions={this.props.transactions} />
         <InstrumentsPane />
       </div>
     );
   }
 }
 
-export default connect()(Transactions);
+const mapStateToProps = state => {
+  return {
+    transactions: state.transactions
+  };
+};
+
+export default connect(mapStateToProps)(Transactions);
