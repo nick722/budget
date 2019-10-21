@@ -34,13 +34,15 @@ TECHNOLOGIES:
 Technologies to use:
 
 First:
-1) Server-side rendering
-2) Redux selectors
-3) Router
-4) Redux testing
-5) Formik
+
+1. Server-side rendering
+2. Redux selectors
+3. Router
+4. Redux testing
+5. Formik
 
 Next:
+
 - Promises
 - Async/Await
 - Try/Catch
