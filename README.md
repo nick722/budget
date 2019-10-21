@@ -7,6 +7,17 @@ API for this app is: https://github.com/nick722/budget-api
 - Current money balance should be shown
 - There should be categories for transactions
 
+TODO STEP 1:
+[v] Get static data from the node server
+[v] Make request using the redux thunk
+[v] Put data in the redux store
+[v] Make 1 endpoint on the node/express API providing static data
+[v] Data on the server is kept in a json file.
+[ ] Render the table with static data on UI.
+[ ] It should look nice on mobile.
+[ ] Write unit tests
+[ ] Provide propTypes
+
 Features to implement:
 
 - Loading
