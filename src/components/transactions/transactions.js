@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TransactionsList from "./transactions-list/transactions-list";
-import InstrumentsPane from "./instrumenst-pane/instruments-pane";
+import InstrumentsPane from "./instruments-pane/instruments-pane";
 import BalancePane from "./balance-pane/balance-pane";
 import transactions from "../../server-mock/transactions";
 import { fetchTransactions } from "../../store/transactions/transactions";
