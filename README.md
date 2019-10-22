@@ -43,6 +43,7 @@ First:
 4. Redux testing
 5. Formik
 6. classNames
+7. A11y
 
 Next:
 
