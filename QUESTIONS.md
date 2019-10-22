@@ -10,3 +10,11 @@
 Или можно пока не заморачиваться с этим, показывать транзакции единым списком?
 
 Т.к. есть много других интересных штук, с которыми бы я охотнее повозился - типа SSR'а или тестирования редакса.
+
+2. Что такое rem()?
+
+Sass mixin that converts pixel values to rem values for whatever property is passed to it
+
+https://www.npmjs.com/package/sass-rem
+
+или нет?

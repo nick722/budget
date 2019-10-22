@@ -31,6 +31,7 @@ TECHNOLOGIES:
 - Node/express api
 - Axios
 - CSS Grid
+- Logical CSS properties
 
 Technologies to use:
 
@@ -41,9 +42,14 @@ First:
 3. Router
 4. Redux testing
 5. Formik
+6. classNames
 
 Next:
 
+- rem()?
+- Moment
+- Reselect
+- Memoize
 - Promises
 - Async/Await
 - Try/Catch
