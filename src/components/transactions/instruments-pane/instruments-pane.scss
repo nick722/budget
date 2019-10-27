@@ -3,8 +3,12 @@
 }
 
 .add-button {
-  inline-size: 9rem;
   block-size: 1.6rem;
+  inline-size: 9rem;
   margin-inline-start: auto;
   margin-inline-end: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

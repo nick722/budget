@@ -32,6 +32,7 @@ TECHNOLOGIES:
 - Axios
 - CSS Grid
 - Logical CSS properties
+- react-fontawesome
 
 Technologies to use:
 
