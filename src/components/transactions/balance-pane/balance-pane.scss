@@ -1,10 +1,14 @@
+.balance-pane {
+  block-size: 3rem;
+}
+
 .balance-banner {
   //todo display: flex;
   //todo justify-content: space-between;
   background: #ffffff;
   box-sizing: border-box;
   height: 40px;
-  width: 90%;
+  inline-size: 15.3rem;
   margin: 0 auto;
   padding-inline-start: 5px;
   padding-inline-end: 5px;

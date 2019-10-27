@@ -2,5 +2,13 @@
   background: #f0f0f0;
   display: grid;
   grid-template-columns: 270px 1fr 160px;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+}
+
+@media screen and (max-width: 900px) {
+  .transactions {
+    & div {
+      grid-column: 1 / 4;
+    }
+  }
 }
