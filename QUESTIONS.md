@@ -18,3 +18,7 @@ Sass mixin that converts pixel values to rem values for whatever property is pas
 https://www.npmjs.com/package/sass-rem
 
 или нет?
+
+3. Does deep nesting flexbox layout cause performance issue?
+   https://stackoverflow.com/questions/39463220/does-deep-nesting-flexbox-layout-cause-performance-issue
+   TLDR: The difference is not that much
