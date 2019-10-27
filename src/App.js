@@ -1,9 +1,17 @@
 import React from "react";
 import Transactions from "./components/transactions/transactions";
-import "./App.css";
+import "./App.scss";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  return <Transactions />;
+  return (
+    <>
+      <Header />
+      <Transactions />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import TransactionsList from "./transactions-list/transactions-list";
 import InstrumentsPane from "./instruments-pane/instruments-pane";
 import BalancePane from "./balance-pane/balance-pane";
+import NavPane from "./nav-pane/nave-pane";
 import transactions from "../../server-mock/transactions";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
@@ -20,6 +21,7 @@ class Transactions extends Component {
   render() {
     return (
       <div className="transactions">
+        <NavPane />
         <BalancePane />
         <TransactionsList transactions={this.props.transactions} />
         <InstrumentsPane />
