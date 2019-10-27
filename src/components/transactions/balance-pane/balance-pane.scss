@@ -1,2 +1,21 @@
-.balance-pane {
+.balance-banner {
+  //display: flex;
+  //justify-content: space-between;
+  background: #ffffff;
+  box-sizing: border-box;
+  height: 40px;
+  width: 90%;
+  margin: 45px auto;
+  padding-inline-start: 5px;
+  padding-inline-end: 5px;
+
+  & span {
+    height: 40px;
+    line-height: 40px;
+    white-space: nowrap;
+  }
+}
+
+.balance-sum {
+  float: right;
 }
