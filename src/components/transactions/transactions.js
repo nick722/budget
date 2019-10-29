@@ -4,18 +4,17 @@ import TransactionsList from "./transactions-list/transactions-list";
 import InstrumentsPane from "./instruments-pane/instruments-pane";
 import BalancePane from "./balance-pane/balance-pane";
 import NavPane from "./nav-pane/nave-pane";
-import transactions from "../../server-mock/transactions";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
 import "./transactions.scss";
 
 class Transactions extends Component {
-  getInitialTransactions = transactions => {
-    this.props.dispatch(fetchTransactions(transactions));
+  getInitialTransactions = () => {
+    this.props.dispatch(fetchTransactions());
   };
 
   componentDidMount() {
-    this.getInitialTransactions(transactions);
+    this.getInitialTransactions();
   }
 
   render() {
