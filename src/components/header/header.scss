@@ -6,8 +6,6 @@ header {
   grid-area: header;
 }
 
-/* LOGO */
-
 .logo {
   color: #825c1d;
   float: left;
@@ -18,8 +16,6 @@ header {
     font-size: 3.4rem;
   }
 }
-
-/* SITE NAVIGATION */
 
 .site-navigation {
   block-size: 100%;
@@ -40,10 +36,8 @@ header {
       box-sizing: border-box;
     }
   }
-}
 
-/* CATEGORIES */
-
-.categories {
-  float: left;
+  &__categories {
+    float: left;
+  }
 }

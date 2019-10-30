@@ -53,10 +53,10 @@
     line-height: 40px;
     white-space: nowrap;
   }
-}
 
-.balance-sum {
-  float: right;
+  &__sum {
+    float: right;
+  }
 }
 
 /* INSTRUMENTS PANE */

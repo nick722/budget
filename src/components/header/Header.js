@@ -14,7 +14,7 @@ const Header = () => {
         <a className="home" href="#">
           Home
         </a>
-        <a className="categories" href="#">
+        <a className="site-navigation__categories" href="#">
           Categories
         </a>
       </nav>
