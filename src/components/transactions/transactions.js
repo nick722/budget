@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TransactionsList from "./transactions-list/transactions-list";
-import InstrumentsPane from "./instruments-pane/instruments-pane";
-import BalancePane from "./balance-pane/balance-pane";
-import NavPane from "./nav-pane/nave-pane";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
 import "./transactions.scss";
@@ -20,10 +17,19 @@ class Transactions extends Component {
   render() {
     return (
       <div className="transactions">
-        <NavPane />
-        <BalancePane />
+        <div className="transactions__nave-pane">
+          <div className="transactions__month-banner">October 2019</div>
+        </div>
+        <div className="balance-pane">
+          <div className="balance-banner">
+            <span>Overall balance </span>
+            <span className="balance-sum">5100</span>
+          </div>
+        </div>
         <TransactionsList transactions={this.props.transactions} />
-        <InstrumentsPane />
+        <div className="instruments-pane">
+          <button className="add-button">Add</button>
+        </div>
       </div>
     );
   }

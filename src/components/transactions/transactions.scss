@@ -3,6 +3,24 @@
   display: grid;
   grid-template-columns: 270px 1fr 160px;
   grid-template-rows: auto auto 1fr;
+
+  &__nave-pane {
+    display: grid;
+    block-size: 3rem;
+    grid-column: 1 / 4;
+  }
+
+  &__month-banner {
+    background: #e1e1e1;
+    block-size: 1.8rem;
+    border: 1px solid #adadad;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    inline-size: 10rem;
+    line-height: 1.8rem;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -10,5 +28,62 @@
     & div {
       grid-column: 1 / 4;
     }
+  }
+}
+
+/* BALANCE PANE */
+
+.balance-pane {
+  block-size: 3rem;
+}
+
+.balance-banner {
+  //todo display: flex;
+  //todo justify-content: space-between;
+  background: #ffffff;
+  box-sizing: border-box;
+  height: 40px;
+  inline-size: 15.3rem;
+  margin: 0 auto;
+  padding-inline-start: 5px;
+  padding-inline-end: 5px;
+
+  & span {
+    height: 40px;
+    line-height: 40px;
+    white-space: nowrap;
+  }
+}
+
+.balance-sum {
+  float: right;
+}
+
+/* INSTRUMENTS PANE */
+
+.instruments-pane {
+  display: grid;
+}
+
+.add-button {
+  block-size: 1.6rem;
+  inline-size: 9rem;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .instruments-pane {
+    margin-block-start: 0.6rem;
+    margin-block-end: 0.6rem;
+  }
+
+  .add-button {
+    margin: auto;
   }
 }
