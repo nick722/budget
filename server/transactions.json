@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "transactionType": "Income",
+    "type": "Income",
     "category": "Side Job",
     "description": "Side Job",
     "date": "12.08.2019",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "transactionType": "Income",
+    "type": "Income",
     "category": "Salary",
     "description": "Cash advance",
     "date": "02.08.2019",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "transactionType": "Income",
+    "type": "Income",
     "category": "Salary",
     "description": "Salary",
     "date": "20.08.2019",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "transactionType": "Expense",
+    "type": "Expense",
     "category": "Food",
     "description": "Bread",
     "date": "15.08.2019",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "transactionType": "Expense",
+    "type": "Expense",
     "category": "Food",
     "description": "Vegetables",
     "date": "16.08.2019",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "transactionType": "Expense",
+    "type": "Expense",
     "category": "Clothes",
     "description": "Shoes",
     "date": "24.08.2019",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "transactionType": "Expense",
+    "type": "Expense",
     "category": "Clothes",
     "description": "T-shirt",
     "date": "10.08.2019",
