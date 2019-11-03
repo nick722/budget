@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 import TransactionsList from "./transactions-list/transactions-list";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
@@ -18,7 +23,21 @@ class Transactions extends Component {
     return (
       <div className="transactions">
         <div className="transactions__nave-pane">
-          <div className="transactions__month-banner">October 2019</div>
+          <div className="transactions__month-panel">
+            <div>
+              <button className="transactions__month-panel--arrow">
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+            </div>
+            <div className="transactions__month-panel--banner">
+              October 2019
+            </div>
+            <div>
+              <button className="transactions__month-panel--arrow">
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </div>
+          </div>
         </div>
         <div className="balance-pane">
           <div className="balance-banner">

@@ -9,17 +9,42 @@
     display: grid;
     grid-column: 1 / 4;
   }
-
-  &__month-banner {
-    background: #e1e1e1;
-    block-size: 1.8rem;
-    border: 1px solid #adadad;
-    box-sizing: border-box;
-    font-size: 0.9rem;
-    inline-size: 10rem;
-    line-height: 1.8rem;
+  &__month-panel {
     margin: auto;
-    text-align: center;
+
+    & > div {
+      float: left;
+    }
+    &--arrow {
+      color: #647cab;
+      background: #e1e1e1;
+      block-size: 1.8rem;
+      border: 1px solid #adadad;
+      box-sizing: border-box;
+      font-size: 1.3rem;
+      line-height: 0;
+      margin-left: 0.1rem;
+      padding-left: 0.3rem;
+      margin-right: 0.1rem;
+      padding-top: 0.2rem;
+      cursor: pointer;
+      width: 1.6rem;
+    }
+
+    &--arrow:nth-of-type(2) {
+      padding-left: 0.4rem;
+    }
+
+    &--banner {
+      background: #e1e1e1;
+      block-size: 1.8rem;
+      border: 1px solid #adadad;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      inline-size: 10rem;
+      line-height: 1.8rem;
+      text-align: center;
+    }
   }
 }
 
