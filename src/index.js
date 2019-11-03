@@ -6,15 +6,7 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.render(
-  <Provider
-    store={createStore({
-      transactions: {
-        transactions: [{ id: 3, description: "radish", amount: "20" }],
-        loading: false,
-        error: null
-      }
-    })}
-  >
+  <Provider store={createStore()}>
     <App />
   </Provider>,
   document.getElementById("root")
