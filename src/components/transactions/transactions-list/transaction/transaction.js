@@ -14,7 +14,7 @@ const Transaction = ({ transaction: { amount, description, type } }) => {
   return (
     <tr className="transaction" style={style}>
       <td>{description}</td>
-      <td>{amount}</td>
+      <td>{`${amount} rub.`}</td>
     </tr>
   );
 };

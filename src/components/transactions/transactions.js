@@ -23,12 +23,12 @@ class Transactions extends Component {
         <div className="balance-pane">
           <div className="balance-banner">
             <span>Overall balance </span>
-            <span className="balance-banner__sum">5100</span>
+            <span className="balance-banner__sum">5100 rub.</span>
           </div>
         </div>
         <TransactionsList transactions={this.props.transactions} />
         <div className="instruments-pane">
-          <button className="add-button">Add</button>
+          <button className="add-button">Add transaction</button>
         </div>
       </div>
     );
