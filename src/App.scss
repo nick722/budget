@@ -5,9 +5,13 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  border-left: 1px solid #d7d7d7;
+  border-right: 1px solid #d7d7d7;
   box-sizing: border-box;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
+  margin: auto;
+  max-width: 1200px;
+  min-height: 100vh;
 }
