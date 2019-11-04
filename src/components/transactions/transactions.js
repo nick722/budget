@@ -10,7 +10,7 @@ import { fetchTransactions } from "../../store/transactions/transactions";
 
 import "./transactions.scss";
 
-class Transactions extends Component {
+export class Transactions extends Component {
   getInitialTransactions = () => {
     this.props.dispatch(fetchTransactions());
   };
@@ -54,10 +54,8 @@ class Transactions extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    transactions: state.transactions
-  };
-};
+const mapStateToProps = state => ({
+  transactions: state.transactions
+});
 
 export default connect(mapStateToProps)(Transactions);

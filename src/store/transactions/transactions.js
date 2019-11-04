@@ -14,7 +14,7 @@ export const failure = error => ({ type: FETCH_FAILURE, payload: error });
 // Reducer
 const initialState = {
   transactions: [],
-  loading: false,
+  isLoading: false,
   error: null
 };
 
@@ -34,19 +34,19 @@ export const fetchTransactions = () => {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_REQUEST:
-      return { ...state, loading: true, error: null };
+      return { ...state, isLoading: true, error: null };
     case FETCH_SUCCESS:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         transactions: [...state.transactions, ...action.payload]
       };
     case FETCH_FAILURE:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         transactions: [],
-        error: action.error
+        error: action.payload
       };
     default:
       return state;
