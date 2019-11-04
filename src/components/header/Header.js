@@ -11,7 +11,7 @@ const Header = () => {
         <FontAwesomeIcon icon={faWallet} />
       </div>
       <nav className="site-navigation">
-        <a className="home" href="#">
+        <a className="site-navigation__home" href="#">
           Home
         </a>
         <a className="site-navigation__categories" href="#">
