@@ -39,7 +39,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         isLoading: false,
-        transactions: [...state.transactions, ...action.payload]
+        transactions: [...action.payload]
       };
     case FETCH_FAILURE:
       return {
