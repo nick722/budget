@@ -61,3 +61,4 @@ Next:
 - Cookies
 - Local/Session Storage
 - TypeScript
+- query-string
