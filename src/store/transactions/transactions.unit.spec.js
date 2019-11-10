@@ -1,12 +1,16 @@
+import axios from "axios";
 import reducer, {
   FETCH_FAILURE,
   FETCH_REQUEST,
   FETCH_SUCCESS,
   failure,
   request,
-  success
+  success,
+  fetchTransactions
 } from "./transactions";
 import { exampleState, initialState, responseData } from "./__mocks__";
+
+jest.mock("axios", () => ({ get: jest.fn(() => Promise.resolve()) }));
 
 describe("Transactions store", () => {
   const error = new Error("something went wrong!");
@@ -79,8 +83,72 @@ describe("Transactions store", () => {
     });
   });
 
-  //todo
-  describe("fetchTransactions", () => {
-    it("creates FETCH_SUCCESS when fetching transactions has been done", () => {});
+  describe("fetchTransactions thunk", () => {
+    const mockDispatch = jest.fn();
+    const mockGetState = () => ({
+      transactions: [...exampleState]
+    });
+    const requestUrl = "http://localhost:3001/transactions";
+
+    const fetch = () => fetchTransactions()(mockDispatch, mockGetState);
+
+    beforeEach(() => {
+      mockDispatch.mockReset();
+    });
+
+    it("should dispatch a FETCH_REQUEST action", () => {
+      fetch();
+
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: FETCH_REQUEST
+      });
+    });
+
+    it("should make a request", async () => {
+      await fetch();
+
+      expect(axios.get).toHaveBeenCalledWith(requestUrl);
+    });
+
+    //todo - Вызывается саксес с данными из феча при успешном выполнении
+    it("should dispatch a FETCH_SUCCESS with proper payload WHEN the request succeeds", async () => {
+      const responseData = [
+        {
+          id: 1,
+          type: "Income",
+          category: "Side Job",
+          description: "Side Job",
+          date: "12.08.2019",
+          price: 2500,
+          quantity: 1,
+          amount: 2500
+        },
+        {
+          id: 2,
+          type: "Income",
+          category: "Salary",
+          description: "Cash advance",
+          date: "02.08.2019",
+          price: 5000,
+          quantity: 1,
+          amount: 5000
+        }
+      ];
+
+      axios.get.mockResolvedValue({ data: responseData });
+
+      await fetch();
+
+      //todo HELP NEEDED: why FETCH_REQUEST is called, not FETCH_SUCCESS?
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: FETCH_SUCCESS,
+        payload: { data: responseData }
+      });
+    });
+
+    //todo  Обработать ошибку - вызывается фейл экшен при ошибке, с нужными данными
+    it("should dispatch FETCH_ERROR with proper payload WHEN the request fails", () => {
+      return false;
+    });
   });
 });
