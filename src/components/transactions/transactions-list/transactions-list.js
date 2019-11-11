@@ -24,6 +24,10 @@ const TransactionsList = ({ transactions: { transactions } }) => {
   );
 };
 
+TransactionsList.defaultProps = {
+  transactions: {}
+};
+
 TransactionsList.propTypes = {
   transactions: PropTypes.shape({
     transactions: PropTypes.arrayOf(
