@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import TransactionsList from "./transactions-list";
 
 const defaultProps = {
@@ -30,13 +30,12 @@ const defaultProps = {
 };
 
 describe("TransactionsList component", () => {
-  const component = shallow(<TransactionsList {...defaultProps} />);
+  const component = mount(<TransactionsList {...defaultProps} />);
   it("should render into the document", () => {
     expect(component).toHaveLength(1);
   });
 
   it("should have correct props", () => {
-    //todo continue
     expect(component.props()).toMatchObject(defaultProps);
   });
 });
