@@ -11,12 +11,8 @@ import { fetchTransactions } from "../../store/transactions/transactions";
 import "./transactions.scss";
 
 export class Transactions extends Component {
-  getInitialTransactions = () => {
-    this.props.dispatch(fetchTransactions());
-  };
-
   componentDidMount() {
-    this.getInitialTransactions();
+    this.props.dispatch(fetchTransactions());
   }
 
   render() {
