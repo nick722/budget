@@ -11,18 +11,22 @@ const defaultProps = {
 };
 
 describe("TransactionsList component", () => {
-  const component = mount(<Transaction {...defaultProps} />);
+  const wrappedComponent = mount(
+    <table>
+      <tbody>
+        <Transaction {...defaultProps} />
+      </tbody>
+    </table>
+  );
+
   it("should render into the document", () => {
-    expect(component).toHaveLength(1);
+    expect(wrappedComponent.find(Transaction)).toHaveLength(1);
   });
 
   it("should have correct props", () => {
-    //todo HELP NEEDED
-    // get Warning: validateDOMNesting(...): <tr> cannot appear as a child of <div>.
-    // Looks like it's because of mount not shallow used
-    // But I need mount to test props
-    // How this can be fixed?
-    expect(component.props()).toMatchObject(defaultProps);
+    expect(wrappedComponent.find(Transaction).props()).toMatchObject(
+      defaultProps
+    );
   });
 
   describe("setBackgroundColor", () => {
