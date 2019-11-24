@@ -2,7 +2,7 @@
   background: #f0f0f0;
   display: grid;
   grid-area: main;
-  grid-template-columns: 270px 1fr 160px;
+  grid-template-columns: 16.9rem 1fr 10rem;
   grid-template-rows: 3rem auto;
 
   &__nave-pane {
@@ -67,15 +67,15 @@
   //todo justify-content: space-between;
   background: #ffffff;
   box-sizing: border-box;
-  height: 40px;
+  height: 2.5rem;
   inline-size: 15.3rem;
   margin: 0 auto;
-  padding-inline-start: 5px;
-  padding-inline-end: 5px;
+  padding-inline-start: 0.3rem;
+  padding-inline-end: 0.3rem;
 
   & span {
-    height: 40px;
-    line-height: 40px;
+    height: 2.5rem;
+    line-height: 2.5rem;
     white-space: nowrap;
   }
 
