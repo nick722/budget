@@ -12,6 +12,6 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
   margin: auto;
-  max-width: 1200px;
-  min-height: 100vh;
+  max-inline-size: 1200px;
+  min-block-size: 100vh;
 }

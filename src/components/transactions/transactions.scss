@@ -28,7 +28,7 @@
       margin-right: 0.1rem;
       padding-top: 0.2rem;
       cursor: pointer;
-      width: 1.6rem;
+      inline-size: 1.6rem;
     }
 
     &--arrow:nth-of-type(2) {
@@ -66,15 +66,15 @@
   //todo display: flex;
   //todo justify-content: space-between;
   background: #ffffff;
+  block-size: 2.5rem;
   box-sizing: border-box;
-  height: 2.5rem;
   inline-size: 15.3rem;
   margin: 0 auto;
   padding-inline-start: 0.3rem;
   padding-inline-end: 0.3rem;
 
   & span {
-    height: 2.5rem;
+    block-size: 2.5rem;
     line-height: 2.5rem;
     white-space: nowrap;
   }
