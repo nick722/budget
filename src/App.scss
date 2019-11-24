@@ -9,7 +9,7 @@ body {
   border-right: 1px solid #d7d7d7;
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 4rem auto 3rem;
   grid-template-areas: "header" "main" "footer";
   margin: auto;
   max-inline-size: 1200px;
