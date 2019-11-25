@@ -10,7 +10,7 @@ import reducer, {
 } from "./transactions";
 import { exampleState, initialState, responseData } from "./__mocks__";
 
-jest.mock("axios", () => ({ get: jest.fn(() => Promise.resolve()) }));
+jest.mock("axios", () => ({ get: jest.fn() }));
 
 describe("Transactions store", () => {
   const error = new Error("something went wrong!");
@@ -96,6 +96,10 @@ describe("Transactions store", () => {
       mockDispatch.mockReset();
     });
 
+    afterEach(() => {
+      axios.get.mockReset();
+    });
+
     it("should dispatch a FETCH_REQUEST action", () => {
       fetch();
 
@@ -135,14 +139,13 @@ describe("Transactions store", () => {
         }
       ];
 
-      axios.get.mockResolvedValue({ data: responseData });
+      axios.get.mockResolvedValueOnce({ data: responseData });
 
       await fetch();
 
-      //todo HELP NEEDED: why FETCH_REQUEST is called, not FETCH_SUCCESS?
-      expect(mockDispatch).toHaveBeenCalledWith({
+      expect(mockDispatch).lastCalledWith({
         type: FETCH_SUCCESS,
-        payload: { data: responseData }
+        payload: responseData
       });
     });
 
