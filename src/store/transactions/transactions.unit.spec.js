@@ -10,7 +10,7 @@ import reducer, {
 } from "./transactions";
 import { exampleState, initialState, responseData } from "./__mocks__";
 
-jest.mock("axios", () => ({ get: jest.fn() }));
+jest.mock("axios", () => ({ get: jest.fn(() => Promise.resolve()) }));
 
 describe("Transactions store", () => {
   const error = new Error("something went wrong!");
@@ -97,13 +97,13 @@ describe("Transactions store", () => {
     });
 
     afterEach(() => {
-      axios.get.mockReset();
+      jest.clearAllMocks();
     });
 
     it("should dispatch a FETCH_REQUEST action", () => {
       fetch();
 
-      expect(mockDispatch).toHaveBeenCalledWith({
+      expect(mockDispatch).toBeCalledWith({
         type: FETCH_REQUEST
       });
     });
@@ -111,10 +111,9 @@ describe("Transactions store", () => {
     it("should make a request", async () => {
       await fetch();
 
-      expect(axios.get).toHaveBeenCalledWith(requestUrl);
+      expect(axios.get).toBeCalledWith(requestUrl);
     });
 
-    //todo - Вызывается саксес с данными из феча при успешном выполнении
     it("should dispatch a FETCH_SUCCESS with proper payload WHEN the request succeeds", async () => {
       const responseData = [
         {
@@ -143,15 +142,21 @@ describe("Transactions store", () => {
 
       await fetch();
 
-      expect(mockDispatch).lastCalledWith({
+      expect(mockDispatch).toBeCalledWith({
         type: FETCH_SUCCESS,
         payload: responseData
       });
     });
 
-    //todo  Обработать ошибку - вызывается фейл экшен при ошибке, с нужными данными
-    it("should dispatch FETCH_ERROR with proper payload WHEN the request fails", () => {
-      return false;
+    it("should dispatch FETCH_ERROR with proper payload WHEN the request fails", async () => {
+      axios.get.mockRejectedValue(error);
+
+      await fetch();
+
+      expect(mockDispatch).toBeCalledWith({
+        type: FETCH_FAILURE,
+        payload: error
+      });
     });
   });
 });
