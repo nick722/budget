@@ -9,11 +9,20 @@ import TransactionsList from "./transactions-list/transactions-list";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
 import "./transactions.scss";
+import AddTransactionModal from "../addTransactionModal/addTransactionModal";
 
 export class Transactions extends Component {
+  state = {
+    addTransactionModalIsOpen: true
+  };
+
   componentDidMount() {
     this.props.dispatch(fetchTransactions());
   }
+
+  handleOpenAppTransactionModal = () => {
+    console.log(this.state);
+  };
 
   render() {
     return (
@@ -43,8 +52,14 @@ export class Transactions extends Component {
         </div>
         <TransactionsList transactions={this.props.transactions} />
         <div className="instruments-pane">
-          <button className="add-button">Add transaction</button>
+          <button
+            className="add-button"
+            onClick={this.handleOpenAppTransactionModal}
+          >
+            Add transaction
+          </button>
         </div>
+        <AddTransactionModal isOpen={this.state.addTransactionModalIsOpen} />
       </div>
     );
   }
