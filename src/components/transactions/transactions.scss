@@ -3,11 +3,11 @@ $balance-banner-padding: 0.3rem;
 $instruments-pane-margin: 0.6rem;
 
 .transactions {
-  background: #f0f0f0;
   display: grid;
   grid-area: main;
   grid-template-columns: 16.9rem 1fr 10rem;
   grid-template-rows: 3rem auto;
+  background: #f0f0f0;
 
   &__nave-pane {
     display: grid;
@@ -20,19 +20,19 @@ $instruments-pane-margin: 0.6rem;
       float: left;
     }
     &--arrow {
-      color: #647cab;
-      background: #e1e1e1;
-      block-size: 1.8rem;
-      border: 1px solid #adadad;
       box-sizing: border-box;
-      font-size: 1.3rem;
-      line-height: 0;
+      block-size: 1.8rem;
+      inline-size: 1.6rem;
       margin-left: $month-panel-arrow-margin;
       margin-right: $month-panel-arrow-margin;
       padding-left: 0.3rem;
       padding-top: 0.2rem;
+      color: #647cab;
+      background: #e1e1e1;
+      border: 1px solid #adadad;
+      font-size: 1.3rem;
+      line-height: 0;
       cursor: pointer;
-      inline-size: 1.6rem;
     }
 
     &--arrow:nth-of-type(2) {
@@ -40,12 +40,12 @@ $instruments-pane-margin: 0.6rem;
     }
 
     &--banner {
-      background: #e1e1e1;
-      block-size: 1.8rem;
-      border: 1px solid #adadad;
       box-sizing: border-box;
-      font-size: 0.9rem;
+      block-size: 1.8rem;
       inline-size: 10rem;
+      background: #e1e1e1;
+      border: 1px solid #adadad;
+      font-size: 0.9rem;
       line-height: 1.8rem;
       text-align: center;
     }
@@ -71,13 +71,13 @@ $instruments-pane-margin: 0.6rem;
 .balance-banner {
   //todo display: flex;
   //todo justify-content: space-between;
-  background: #ffffff;
-  block-size: 2.5rem;
   box-sizing: border-box;
+  block-size: 2.5rem;
   inline-size: 15.3rem;
   margin: 0 auto;
   padding-inline-start: $balance-banner-padding;
   padding-inline-end: $balance-banner-padding;
+  background: #ffffff;
 
   & span {
     block-size: 2.5rem;
