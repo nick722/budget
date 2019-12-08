@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
+import messages from "../../../../locales/messages/en";
 
 import "./transaction.scss";
 
-const Transaction = ({ transaction: { amount, description, type } }) => (
-  <tr className={`transaction-${type}`}>
-    <td>{description}</td>
-    <td>{`${amount} rub.`}</td>
-  </tr>
-);
+const Transaction = ({ intl, transaction: { amount, description, type } }) => {
+  const currency = intl.formatMessage({ id: messages["transaction.currency"] });
+
+  return (
+    <tr className={`transaction-${type}`}>
+      <td>{description}</td>
+      <td>{`${amount} ${currency}.`}</td>
+    </tr>
+  );
+};
 
 Transaction.defaultProps = {
   amount: 0,
@@ -22,4 +28,4 @@ Transaction.propTypes = {
   type: PropTypes.string
 };
 
-export default Transaction;
+export default injectIntl(Transaction);

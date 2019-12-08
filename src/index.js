@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import { Provider as ReduxProvider } from "react-redux";
+import { IntlProvider } from "react-intl";
 import createStore from "./store/create-store";
 import App from "./App";
 import "./index.css";
 
 ReactDOM.render(
-  <Provider store={createStore()}>
-    <App />
-  </Provider>,
+  <ReduxProvider store={createStore()}>
+    <IntlProvider>
+      <App />
+    </IntlProvider>
+  </ReduxProvider>,
   document.getElementById("root")
 );
