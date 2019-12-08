@@ -1,3 +1,5 @@
+$padding-size: 0.2rem;
+
 header {
   background: linear-gradient(#ffffff, #d7d7d7);
   block-size: 3.5rem;
@@ -7,8 +9,8 @@ header {
 .logo {
   color: #825c1d;
   float: left;
-  padding-inline-start: 0.2rem;
-  padding-inline-end: 0.2rem;
+  padding-inline-start: $padding-size;
+  padding-inline-end: $padding-size;
 
   & svg {
     font-size: 3.4rem;
@@ -23,8 +25,8 @@ header {
     box-sizing: border-box;
     display: inline-block;
     float: left;
-    padding-inline-start: 0.2rem;
-    padding-inline-end: 0.2rem;
+    padding-inline-start: $padding-size;
+    padding-inline-end: $padding-size;
     text-decoration: none;
     line-height: 3.2rem;
 
