@@ -1,10 +1,12 @@
 import React from "react";
-import { shallow } from "enzyme";
+import renderer from "react-test-renderer";
 import Footer from "./Footer";
 
 describe("Footer component", () => {
   it("should render into the document", () => {
-    const component = shallow(<Footer />);
-    expect(component).toHaveLength(1);
+    const component = renderer.create(<Footer />);
+    let renderedFooter = component.toJSON();
+
+    expect(renderedFooter).toMatchSnapshot();
   });
 });
