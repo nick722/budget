@@ -32,9 +32,9 @@ export class Transactions extends Component {
           </div>
         </div>
         <div className="balance-pane">
-          <div className="balance-banner">
+          <div className="balance-pane__banner">
             <span>Overall balance </span>
-            <span className="balance-banner__sum">5100 rub.</span>
+            <span className="balance-pane__sum">5100 rub.</span>
           </div>
         </div>
         <TransactionsList transactions={this.props.transactions} />
