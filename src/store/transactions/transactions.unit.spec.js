@@ -51,12 +51,11 @@ describe("Transactions store", () => {
       const prevState = {
         ...exampleState
       };
+      const result = reducer(prevState, {
+        type: FETCH_REQUEST
+      });
 
-      expect(
-        reducer(prevState, {
-          type: FETCH_REQUEST
-        })
-      ).toEqual({
+      expect(result).toEqual({
         ...prevState,
         error: null,
         isLoading: true
@@ -64,9 +63,12 @@ describe("Transactions store", () => {
     });
 
     it("should return the correct state WHEN receives a 'FETCH_FAILURE'", () => {
-      expect(
-        reducer(initialState, { type: FETCH_FAILURE, payload: error })
-      ).toEqual({
+      const result = reducer(initialState, {
+        type: FETCH_FAILURE,
+        payload: error
+      });
+
+      expect(result).toEqual({
         ...initialState,
         error: error,
         isLoading: false,
@@ -76,10 +78,9 @@ describe("Transactions store", () => {
 
     it("should return the correct state WHEN  receives a 'FETCH_SUCCESS' action", () => {
       const payload = responseData;
+      const result = reducer(initialState, { type: FETCH_SUCCESS, payload });
 
-      expect(
-        reducer(initialState, { type: FETCH_SUCCESS, payload })
-      ).toMatchObject(exampleState);
+      expect(result).toMatchObject(exampleState);
     });
   });
 
