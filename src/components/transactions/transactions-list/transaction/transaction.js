@@ -23,7 +23,7 @@ Transaction.defaultProps = {
 Transaction.propTypes = {
   amount: PropTypes.number,
   description: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.oneOf(["", "income", "expense"])
 };
 
 export default injectIntl(Transaction);
