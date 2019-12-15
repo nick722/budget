@@ -1,6 +1,6 @@
 import React from "react";
-import { mount, render, shallow } from "enzyme";
 import Transaction, { setBackgroundColor } from "./transaction";
+import { mountWithIntl } from "../../../../test-helpers/intl-enzyme-test-helper";
 
 const defaultProps = {
   transaction: {
@@ -11,7 +11,7 @@ const defaultProps = {
 };
 
 describe("TransactionsList component", () => {
-  const wrappedComponent = mount(
+  const wrappedComponent = mountWithIntl(
     <table>
       <tbody>
         <Transaction {...defaultProps} />
@@ -27,6 +27,15 @@ describe("TransactionsList component", () => {
     expect(wrappedComponent.find(Transaction).props()).toMatchObject(
       defaultProps
     );
+  });
+
+  it("should have translated currency", () => {
+    expect(
+      wrappedComponent
+        .find("td")
+        .at(1)
+        .text()
+    ).toEqual(expect.stringContaining("rub"));
   });
 
   describe("setBackgroundColor", () => {
