@@ -18,22 +18,20 @@ export class Transactions extends Component {
   render() {
     return (
       <div className="transactions">
-        <div className="transactions__nave-pane">
-          <div className="transactions__month-panel">
-            <button className="transactions__month-panel--arrow">
+        <div className="nave-pane">
+          <div className="nave-pane__month-panel">
+            <button className="nave-pane__month-panel--arrow">
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            <div className="transactions__month-panel--banner">
-              October 2019
-            </div>
-            <button className="transactions__month-panel--arrow">
+            <div className="nave-pane__month-panel--banner">October 2019</div>
+            <button className="nave-pane__month-panel--arrow">
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </div>
         </div>
         <div className="balance-pane">
           <div className="balance-pane__banner">
-            <span>Overall balance </span>
+            <span className="balance-pane__label">Overall balance </span>
             <span className="balance-pane__sum">5100 rub.</span>
           </div>
         </div>

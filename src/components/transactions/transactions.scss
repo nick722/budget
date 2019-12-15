@@ -8,17 +8,19 @@ $instruments-pane-margin: 0.6rem;
   grid-template-columns: 16.9rem 1fr 10rem;
   grid-template-rows: 3rem auto;
   background: #f0f0f0;
+}
 
-  &__nave-pane {
-    display: grid;
-    grid-column: 1 / 4;
-  }
+.nave-pane {
+  display: grid;
+  grid-column: 1 / 4;
   &__month-panel {
     margin: auto;
 
-    & > * {
+    &--arrow,
+    &--banner {
       float: left;
     }
+
     &--arrow {
       box-sizing: border-box;
       block-size: 1.8rem;
@@ -55,10 +57,13 @@ $instruments-pane-margin: 0.6rem;
 @media screen and (max-width: 900px) {
   .transactions {
     grid-template-rows: 3rem auto 24rem auto;
+  }
 
-    & div {
-      grid-column: 1 / 4;
-    }
+  .nave-pane,
+  .balance-pane,
+  .transactions-list,
+  .instruments-pane {
+    grid-column: 1 / 4;
   }
 }
 
@@ -75,12 +80,13 @@ $instruments-pane-margin: 0.6rem;
     padding-inline-start: $balance-banner-padding;
     padding-inline-end: $balance-banner-padding;
     background: #ffffff;
+  }
 
-    & span {
-      block-size: 2.5rem;
-      line-height: 2.5rem;
-      white-space: nowrap;
-    }
+  &__label,
+  &__sum {
+    block-size: 2.5rem;
+    line-height: 2.5rem;
+    white-space: nowrap;
   }
 
   &__sum {
