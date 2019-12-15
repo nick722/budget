@@ -16,7 +16,7 @@ $instruments-pane-margin: 0.6rem;
   &__month-panel {
     margin: auto;
 
-    & > div {
+    & > * {
       float: left;
     }
     &--arrow {

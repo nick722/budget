@@ -20,19 +20,15 @@ export class Transactions extends Component {
       <div className="transactions">
         <div className="transactions__nave-pane">
           <div className="transactions__month-panel">
-            <div>
-              <button className="transactions__month-panel--arrow">
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </button>
-            </div>
+            <button className="transactions__month-panel--arrow">
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
             <div className="transactions__month-panel--banner">
               October 2019
             </div>
-            <div>
-              <button className="transactions__month-panel--arrow">
-                <FontAwesomeIcon icon={faChevronRight} />
-              </button>
-            </div>
+            <button className="transactions__month-panel--arrow">
+              <FontAwesomeIcon icon={faChevronRight} />
+            </button>
           </div>
         </div>
         <div className="balance-pane">
