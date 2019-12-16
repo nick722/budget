@@ -14,7 +14,6 @@ function App() {
         <Route path="/" exact component={Transactions} />
         <Route
           path="/categories"
-          exact
           render={() => <div>Categories page is under construction</div>}
         />
       </Switch>
