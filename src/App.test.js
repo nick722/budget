@@ -1,50 +1,53 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import renderer from "react-test-renderer";
+import { render } from "react-dom";
+import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router-dom";
+import { Provider as ReduxProvider } from "react-redux";
+import renderer from "react-test-renderer";
+import createStore from "./store/create-store";
 import App from "./App";
-import Transactions from "./components/transactions/transactions";
+
+const appJsx = (
+  <ReduxProvider store={createStore()}>
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  </ReduxProvider>
+);
 
 describe("App", () => {
-  it("should render without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+  beforeEach(() => {
+    const root = document.createElement("div");
+    document.body.appendChild(root);
+    render(appJsx, root);
   });
 
-  it("should render Home page WHEN route is /", () => {
-    const component = renderer.create(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
-    const homePage = component.toJSON();
-    expect(homePage).toMatchSnapshot();
-
-    // const testInstance = component.root;
-    //
-    // expect(testInstance.findByType(Transactions)).toMatchSnapshot();
-
-    // const root = document.createElement("div");
-    // document.body.appendChild(root);
-    //
-    // render(
-    //   <MemoryRouter initialEntries={["/categories"]}>
-    //     <App />
-    //   </MemoryRouter>,
-    //   root
-    // );
-    //
-    // act(() => {
-    //   const goHomeLink = document.querySelector(".site-navigation")[0];
-    //   goHomeLink.dispatchEvent(new MouseEvent("click"));
-    // });
-    //
-    // expect(document.body.textContent).toBe("Transactions");
+  it("should render and match snapshot", () => {
+    const appComponent = renderer.create(appJsx).toJSON();
+    expect(appComponent).toMatchSnapshot();
   });
 
-  it("should render Categories page WHEN route is /categories", () => {
-    //todo implement the test
-    expect(true).toBe(false);
+  it("should render Transactions Component WHEN Home link is clicked", () => {
+    act(() => {
+      const goHomeLink = document.querySelector(
+        ".site-navigation a:first-child"
+      );
+      goHomeLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    const appComponent = renderer.create(appJsx).toJSON();
+    expect(appComponent).toMatchSnapshot();
+  });
+
+  it("should render Categories page WHEN Categories link is clicked", () => {
+    act(() => {
+      const goHomeLink = document.querySelector(
+        ".site-navigation a:nth-child(2)"
+      );
+      goHomeLink.dispatchEvent(new MouseEvent("click"));
+    });
+
+    const appComponent = renderer.create(appJsx).toJSON();
+    expect(appComponent).toMatchSnapshot();
   });
 });
