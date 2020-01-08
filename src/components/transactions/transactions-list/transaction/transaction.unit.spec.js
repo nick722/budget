@@ -1,6 +1,6 @@
 import React from "react";
-import Transaction, { setBackgroundColor } from "./transaction";
-import { mountWithIntl } from "../../../../test-helpers/intl-enzyme-test-helper";
+import { Transaction } from "./transaction";
+import { shallowWithIntl } from "../../../../test-helpers/intl-enzyme-test-helper";
 
 const defaultProps = {
   transaction: {
@@ -10,41 +10,35 @@ const defaultProps = {
   }
 };
 
-describe("TransactionsList component", () => {
-  const wrappedComponent = mountWithIntl(
-    <table>
-      <tbody>
-        <Transaction {...defaultProps} />
-      </tbody>
-    </table>
-  );
+describe("Transaction component", () => {
+  let component;
+
+  beforeEach(() => {
+    component = shallowWithIntl(<Transaction {...defaultProps} />);
+  });
 
   it("should render into the document", () => {
-    expect(wrappedComponent.find(Transaction)).toHaveLength(1);
+    expect(component).toHaveLength(1);
   });
 
-  it("should have correct props", () => {
-    expect(wrappedComponent.find(Transaction).props()).toMatchObject(
-      defaultProps
-    );
-  });
-
-  it("should have translated currency", () => {
+  it("should have text with translated currency string", () => {
     expect(
-      wrappedComponent
+      component
         .find("td")
         .at(1)
         .text()
     ).toEqual(expect.stringContaining("rub"));
   });
 
-  describe("setBackgroundColor", () => {
-    it("should return the correct color for Income transaction", () => {
-      expect(setBackgroundColor("Income")).toBe("#dcf0d9");
-    });
+  it("should set className for tr according to the type of the transaction", () => {
+    const transactionProp = { transaction: { type: "testtype" } };
 
-    it("should return the correct color for Expense transaction", () => {
-      expect(setBackgroundColor("Expense")).toBe("#f8dede");
-    });
+    component.setProps(transactionProp);
+
+    expect(
+      component
+        .find("tr")
+        .hasClass(`transaction_${transactionProp.transaction.type}`)
+    ).toBe(true);
   });
 });

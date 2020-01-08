@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import "./transaction.scss";
 
-const Transaction = ({ intl, transaction: { amount, description, type } }) => {
+export const Transaction = ({
+  intl,
+  transaction: { amount, description, type }
+}) => {
   const currency = intl.formatMessage({ id: "transaction.currency" });
 
   return (
-    <tr className={`transaction-${type}`}>
+    <tr className={`transaction transaction_${type}`}>
       <td>{description}</td>
       <td>{`${amount} ${currency}.`}</td>
     </tr>
