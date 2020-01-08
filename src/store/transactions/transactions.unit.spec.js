@@ -109,12 +109,6 @@ describe("Transactions store", () => {
       });
     });
 
-    it("should make a request", async () => {
-      await fetch();
-
-      expect(axios.get).toBeCalledWith(requestUrl);
-    });
-
     it("should dispatch a FETCH_SUCCESS with proper payload WHEN the request succeeds", async () => {
       const responseData = [
         {
