@@ -9,11 +9,20 @@ import TransactionsList from "./transactions-list/transactions-list";
 import { fetchTransactions } from "../../store/transactions/transactions";
 
 import "./transactions.scss";
+import AddModal from "../add-modal/add-modal";
 
 export class Transactions extends Component {
+  state = {
+    addModalOpen: false
+  };
+
   componentDidMount() {
     this.props.dispatch(fetchTransactions());
   }
+
+  handleAddModalOpen = () => {
+    this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
+  };
 
   render() {
     return (
@@ -43,8 +52,15 @@ export class Transactions extends Component {
         </div>
         <TransactionsList transactions={this.props.transactions} />
         <div className="instruments-pane">
-          <button className="add-button">Add transaction</button>
+          <button className="add-button" onClick={this.handleAddModalOpen}>
+            Add transaction
+          </button>
         </div>
+        <AddModal
+          appElement={document.getElementById("root")}
+          isOpen={this.state.addModalOpen}
+          onClose={this.handleAddModalOpen}
+        />
       </div>
     );
   }
