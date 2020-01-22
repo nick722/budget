@@ -12,7 +12,7 @@ import "./transactions.scss";
 
 export class Transactions extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchTransactions());
+    this.props.fetchTransactions();
   }
 
   render() {
@@ -48,4 +48,11 @@ const mapStateToProps = state => ({
   transactions: state.transactions
 });
 
-export default connect(mapStateToProps)(Transactions);
+const mapDispatchToProps = {
+  fetchTransactions
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Transactions);

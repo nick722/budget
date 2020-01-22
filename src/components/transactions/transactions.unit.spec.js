@@ -4,7 +4,7 @@ import { Transactions } from "./transactions";
 import TransactionsList from "./transactions-list/transactions-list";
 
 const defaultProps = {
-  dispatch: jest.fn(),
+  fetchTransactions: jest.fn(),
   transactions: {
     transactions: [
       {
