@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import TransactionsList from "./transactions-list/transactions-list";
 import { fetchTransactions } from "../../store/transactions/transactions";
+import BalancePane from "./balance-pane/balance-pane";
+import InstrumentsPane from "./instruments-pane/instruments-pane";
 
 import "./transactions.scss";
 
@@ -29,16 +31,9 @@ export class Transactions extends Component {
             </button>
           </div>
         </div>
-        <div className="balance-pane">
-          <div className="balance-pane__banner">
-            <span className="balance-pane__label">Overall balance </span>
-            <span className="balance-pane__sum">5100 rub.</span>
-          </div>
-        </div>
+        <BalancePane />
         <TransactionsList transactions={this.props.transactions} />
-        <div className="instruments-pane">
-          <button className="add-button">Add transaction</button>
-        </div>
+        <InstrumentsPane />
       </div>
     );
   }
