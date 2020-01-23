@@ -5,7 +5,7 @@ import "./instruments-pane.scss";
 const InstrumentsPane = () => {
   return (
     <div className="instruments-pane">
-      <button className="add-button">Add</button>
+      <button className="add-button">Add transaction</button>
     </div>
   );
 };

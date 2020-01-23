@@ -1,14 +1,68 @@
+$month-panel-arrow-margin: 0.1rem;
+
 .transactions {
-  background: #f0f0f0;
   display: grid;
-  grid-template-columns: 270px 1fr 160px;
-  grid-template-rows: auto auto 1fr;
+  grid-area: main;
+  grid-template-columns: 16.9rem 1fr 10rem;
+  grid-template-rows: 3rem auto;
+  background: #f0f0f0;
+}
+
+.nave-pane {
+  display: grid;
+  grid-column: 1 / 4;
+  &__month-panel {
+    margin: auto;
+
+    &--arrow,
+    &--banner {
+      float: left;
+    }
+
+    &--arrow {
+      box-sizing: border-box;
+      block-size: 1.8rem;
+      inline-size: 1.6rem;
+      margin-inline-start: $month-panel-arrow-margin;
+      margin-inline-end: $month-panel-arrow-margin;
+      padding-block-start: 0.2rem;
+      padding-block-end: 0.4rem;
+      padding-inline-start: 0.1rem;
+      padding-inline-end: 0.3rem;
+      color: #647cab;
+      background: #e1e1e1;
+      border: 1px solid #adadad;
+      font-size: 1.3rem;
+      line-height: 0;
+      cursor: pointer;
+    }
+
+    &--arrow:nth-of-type(2) {
+      padding-inline-start: 0.4rem;
+    }
+
+    &--banner {
+      box-sizing: border-box;
+      block-size: 1.8rem;
+      inline-size: 10rem;
+      background: #e1e1e1;
+      border: 1px solid #adadad;
+      font-size: 0.9rem;
+      line-height: 1.8rem;
+      text-align: center;
+    }
+  }
 }
 
 @media screen and (max-width: 900px) {
   .transactions {
-    & div {
-      grid-column: 1 / 4;
-    }
+    grid-template-rows: 3rem auto 24rem auto;
+  }
+
+  .nave-pane,
+  .balance-pane,
+  .transactions-list,
+  .instruments-pane {
+    grid-column: 1 / 4;
   }
 }

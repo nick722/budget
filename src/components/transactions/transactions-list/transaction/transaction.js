@@ -1,12 +1,32 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
+import "./transaction.scss";
 
-const Transaction = ({ transaction: { amount, description } }) => {
+export const Transaction = ({
+  intl,
+  transaction: { amount, description, type }
+}) => {
+  const currency = intl.formatMessage({ id: "transaction.currency" });
+
   return (
-    <tr className="transaction-entry">
+    <tr className={`transaction transaction_${type}`}>
       <td>{description}</td>
-      <td>{amount}</td>
+      <td>{`${amount} ${currency}.`}</td>
     </tr>
   );
 };
 
-export default Transaction;
+Transaction.defaultProps = {
+  amount: 0,
+  description: "",
+  type: ""
+};
+
+Transaction.propTypes = {
+  amount: PropTypes.number,
+  description: PropTypes.string,
+  type: PropTypes.oneOf(["income", "expense"])
+};
+
+export default injectIntl(Transaction);

@@ -1,3 +1,5 @@
+$border-color: #d7d7d7;
+
 body {
   height: 100vh;
   margin: 0;
@@ -5,11 +7,13 @@ body {
 }
 
 #root {
-  min-height: 100vh;
-  box-sizing: border-box;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  box-sizing: border-box;
   grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 4rem auto 3rem;
+  max-inline-size: 1200px;
+  min-block-size: 100vh;
+  margin: auto;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
 }
-
-//todo mobile view 927px (768px or 992px)

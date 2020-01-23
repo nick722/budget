@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Transaction from "./transaction/transaction";
 
 import "./transactions-list.scss";
@@ -21,6 +22,27 @@ const TransactionsList = ({ transactions: { transactions } }) => {
       </table>
     </div>
   );
+};
+
+TransactionsList.defaultProps = {
+  transactions: {}
+};
+
+TransactionsList.propTypes = {
+  transactions: PropTypes.shape({
+    transactions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        type: PropTypes.string,
+        category: PropTypes.string,
+        description: PropTypes.string,
+        date: PropTypes.string,
+        price: PropTypes.number,
+        quantity: PropTypes.number,
+        amount: PropTypes.number
+      })
+    )
+  })
 };
 
 export default TransactionsList;

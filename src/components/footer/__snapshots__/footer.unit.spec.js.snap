@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render into the document 1`] = `
+<footer>
+  © Copyright 2019
+</footer>
+`;
