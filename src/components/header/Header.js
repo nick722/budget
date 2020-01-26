@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { PATHNAMES } from "../../constants/constants";
 
 import "./header.scss";
 
@@ -12,8 +13,8 @@ const Header = () => {
         <FontAwesomeIcon icon={faWallet} />
       </div>
       <nav className="site-navigation">
-        <Link to="/">Home</Link>
-        <Link to="/categories">Categories</Link>
+        <Link to={PATHNAMES.HOME}>Home</Link>
+        <Link to={PATHNAMES.CATEGORIES}>Categories</Link>
       </nav>
     </header>
   );
