@@ -51,12 +51,11 @@ describe("Transactions store", () => {
       const prevState = {
         ...exampleState
       };
+      const result = reducer(prevState, {
+        type: FETCH_REQUEST
+      });
 
-      expect(
-        reducer(prevState, {
-          type: FETCH_REQUEST
-        })
-      ).toEqual({
+      expect(result).toEqual({
         ...prevState,
         error: null,
         isLoading: true
@@ -64,9 +63,12 @@ describe("Transactions store", () => {
     });
 
     it("should return the correct state WHEN receives a 'FETCH_FAILURE'", () => {
-      expect(
-        reducer(initialState, { type: FETCH_FAILURE, payload: error })
-      ).toEqual({
+      const result = reducer(initialState, {
+        type: FETCH_FAILURE,
+        payload: error
+      });
+
+      expect(result).toEqual({
         ...initialState,
         error: error,
         isLoading: false,
@@ -76,10 +78,9 @@ describe("Transactions store", () => {
 
     it("should return the correct state WHEN  receives a 'FETCH_SUCCESS' action", () => {
       const payload = responseData;
+      const result = reducer(initialState, { type: FETCH_SUCCESS, payload });
 
-      expect(
-        reducer(initialState, { type: FETCH_SUCCESS, payload })
-      ).toMatchObject(exampleState);
+      expect(result).toMatchObject(exampleState);
     });
   });
 
@@ -96,21 +97,18 @@ describe("Transactions store", () => {
       mockDispatch.mockReset();
     });
 
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     it("should dispatch a FETCH_REQUEST action", () => {
       fetch();
 
-      expect(mockDispatch).toHaveBeenCalledWith({
+      expect(mockDispatch).toBeCalledWith({
         type: FETCH_REQUEST
       });
     });
 
-    it("should make a request", async () => {
-      await fetch();
-
-      expect(axios.get).toHaveBeenCalledWith(requestUrl);
-    });
-
-    //todo - Вызывается саксес с данными из феча при успешном выполнении
     it("should dispatch a FETCH_SUCCESS with proper payload WHEN the request succeeds", async () => {
       const responseData = [
         {
@@ -135,20 +133,25 @@ describe("Transactions store", () => {
         }
       ];
 
-      axios.get.mockResolvedValue({ data: responseData });
+      axios.get.mockResolvedValueOnce({ data: responseData });
 
       await fetch();
 
-      //todo HELP NEEDED: why FETCH_REQUEST is called, not FETCH_SUCCESS?
-      expect(mockDispatch).toHaveBeenCalledWith({
+      expect(mockDispatch).toBeCalledWith({
         type: FETCH_SUCCESS,
-        payload: { data: responseData }
+        payload: responseData
       });
     });
 
-    //todo  Обработать ошибку - вызывается фейл экшен при ошибке, с нужными данными
-    it("should dispatch FETCH_ERROR with proper payload WHEN the request fails", () => {
-      return false;
+    it("should dispatch FETCH_ERROR with proper payload WHEN the request fails", async () => {
+      axios.get.mockRejectedValue(error);
+
+      await fetch();
+
+      expect(mockDispatch).toBeCalledWith({
+        type: FETCH_FAILURE,
+        payload: error
+      });
     });
   });
 });

@@ -1,21 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
+import "./transaction.scss";
 
-export const setBackgroundColor = transactionType => {
-  if (transactionType === "Income") return "#dcf0d9";
-  if (transactionType === "Expense") return "#f8dede";
-};
-
-const Transaction = ({ transaction: { amount, description, type } }) => {
-  const style = {
-    color: "blue",
-    backgroundColor: setBackgroundColor(type)
-  };
+export const Transaction = ({
+  intl,
+  transaction: { amount, description, type }
+}) => {
+  const currency = intl.formatMessage({ id: "transaction.currency" });
 
   return (
-    <tr className="transaction" style={style}>
+    <tr className={`transaction transaction_${type}`}>
       <td>{description}</td>
-      <td>{`${amount} rub.`}</td>
+      <td>{`${amount} ${currency}.`}</td>
     </tr>
   );
 };
@@ -29,7 +26,7 @@ Transaction.defaultProps = {
 Transaction.propTypes = {
   amount: PropTypes.number,
   description: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.oneOf(["income", "expense"])
 };
 
-export default Transaction;
+export default injectIntl(Transaction);

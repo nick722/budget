@@ -1,6 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 import TransactionsList from "./transactions-list";
+import Transaction from "./transaction/transaction";
 
 const defaultProps = {
   transactions: {
@@ -30,12 +31,38 @@ const defaultProps = {
 };
 
 describe("TransactionsList component", () => {
-  const component = mount(<TransactionsList {...defaultProps} />);
+  let component;
+
+  beforeEach(() => {
+    component = shallow(<TransactionsList {...defaultProps} />);
+  });
+
   it("should render into the document", () => {
     expect(component).toHaveLength(1);
   });
 
-  it("should have correct props", () => {
-    expect(component.props()).toMatchObject(defaultProps);
+  describe("Transaction", () => {
+    let transaction;
+
+    beforeEach(() => {
+      transaction = component.find(Transaction).first();
+    });
+
+    it("should render into the document", () =>
+      expect(transaction).toHaveLength(1));
+
+    it("should have correct props", () =>
+      expect(transaction.props()).toMatchObject({
+        transaction: {
+          id: 1,
+          type: "Income",
+          category: "Side Job",
+          description: "Side Job",
+          date: "12.08.2019",
+          price: 2500,
+          quantity: 1,
+          amount: 2500
+        }
+      }));
   });
 });

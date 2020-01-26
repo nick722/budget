@@ -1,8 +1,8 @@
 footer {
-  background: #f0f0f0;
-  block-size: 1.5rem;
-  border-block-start: 1px solid #d7d7d7;
-  box-sizing: border-box;
   grid-area: footer;
+  box-sizing: border-box;
+  block-size: 1.5rem;
+  background: #f0f0f0;
+  border-block-start: 1px solid #d7d7d7;
   text-align: center;
 }
