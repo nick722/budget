@@ -1,47 +1,53 @@
+$month-panel-arrow-margin: 0.1rem;
+
 .transactions {
-  background: #f0f0f0;
   display: grid;
   grid-area: main;
-  grid-template-columns: 270px 1fr 160px;
+  grid-template-columns: 16.9rem 1fr 10rem;
   grid-template-rows: 3rem auto;
+  background: #f0f0f0;
+}
 
-  &__nave-pane {
-    display: grid;
-    grid-column: 1 / 4;
-  }
+.nave-pane {
+  display: grid;
+  grid-column: 1 / 4;
   &__month-panel {
     margin: auto;
 
-    & > div {
+    &--arrow,
+    &--banner {
       float: left;
     }
+
     &--arrow {
+      box-sizing: border-box;
+      block-size: 1.8rem;
+      inline-size: 1.6rem;
+      margin-inline-start: $month-panel-arrow-margin;
+      margin-inline-end: $month-panel-arrow-margin;
+      padding-block-start: 0.2rem;
+      padding-block-end: 0.4rem;
+      padding-inline-start: 0.1rem;
+      padding-inline-end: 0.3rem;
       color: #647cab;
       background: #e1e1e1;
-      block-size: 1.8rem;
       border: 1px solid #adadad;
-      box-sizing: border-box;
       font-size: 1.3rem;
       line-height: 0;
-      margin-left: 0.1rem;
-      padding-left: 0.3rem;
-      margin-right: 0.1rem;
-      padding-top: 0.2rem;
       cursor: pointer;
-      width: 1.6rem;
     }
 
     &--arrow:nth-of-type(2) {
-      padding-left: 0.4rem;
+      padding-inline-start: 0.4rem;
     }
 
     &--banner {
-      background: #e1e1e1;
-      block-size: 1.8rem;
-      border: 1px solid #adadad;
       box-sizing: border-box;
-      font-size: 0.9rem;
+      block-size: 1.8rem;
       inline-size: 10rem;
+      background: #e1e1e1;
+      border: 1px solid #adadad;
+      font-size: 0.9rem;
       line-height: 1.8rem;
       text-align: center;
     }
@@ -50,65 +56,13 @@
 
 @media screen and (max-width: 900px) {
   .transactions {
-    & div {
-      grid-column: 1 / 4;
-    }
-  }
-}
-
-/* BALANCE PANE */
-
-.balance-pane {
-  block-size: 3rem;
-}
-
-.balance-banner {
-  //todo display: flex;
-  //todo justify-content: space-between;
-  background: #ffffff;
-  box-sizing: border-box;
-  height: 40px;
-  inline-size: 15.3rem;
-  margin: 0 auto;
-  padding-inline-start: 5px;
-  padding-inline-end: 5px;
-
-  & span {
-    height: 40px;
-    line-height: 40px;
-    white-space: nowrap;
+    grid-template-rows: 3rem auto 24rem auto;
   }
 
-  &__sum {
-    float: right;
-  }
-}
-
-/* INSTRUMENTS PANE */
-
-.instruments-pane {
-  display: grid;
-}
-
-.add-button {
-  block-size: 1.6rem;
-  inline-size: 9rem;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  margin-block-start: 0;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-@media screen and (max-width: 900px) {
+  .nave-pane,
+  .balance-pane,
+  .transactions-list,
   .instruments-pane {
-    margin-block-start: 0.6rem;
-    margin-block-end: 0.6rem;
-  }
-
-  .add-button {
-    margin: auto;
+    grid-column: 1 / 4;
   }
 }

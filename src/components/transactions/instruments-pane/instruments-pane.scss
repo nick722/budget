@@ -1,0 +1,28 @@
+$instruments-pane-margin: 0.6rem;
+
+.instruments-pane {
+  display: grid;
+
+  .add-button {
+    block-size: 1.6rem;
+    inline-size: 9rem;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-block-start: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .instruments-pane {
+      margin-block-start: $instruments-pane-margin;
+      margin-block-end: $instruments-pane-margin;
+    }
+
+    .add-button {
+      margin: auto;
+    }
+  }
+}
