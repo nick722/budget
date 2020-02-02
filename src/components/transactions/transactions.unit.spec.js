@@ -4,6 +4,7 @@ import { Transactions } from "./transactions";
 import TransactionsList from "./transactions-list/transactions-list";
 
 const defaultProps = {
+  addTransaction: jest.fn(),
   fetchTransactions: jest.fn(),
   transactions: {
     transactions: [
@@ -81,11 +82,29 @@ describe("Transactions component", () => {
       }));
   });
 
-  describe("AddModal", () => {
+  describe("InstrumentsPane", () => {
+    let instrumentsPaneComponent;
+
+    beforeEach(() => {
+      instrumentsPaneComponent = component.find("InstrumentsPane");
+    });
+
+    it("should render into the document", () => {
+      expect(instrumentsPaneComponent).toHaveLength(1);
+    });
+
+    it("should have expected props", () => {
+      expect(instrumentsPaneComponent.props()).toMatchObject({
+        handleAddModalOpen: component.instance().handleAddModalOpen
+      });
+    });
+  });
+
+  describe("AddTransactionModal", () => {
     let addModalComponent;
 
     beforeEach(() => {
-      addModalComponent = component.find("AddModal");
+      addModalComponent = component.find("AddTransactionModal");
     });
 
     it("should render into the document", () => {
@@ -100,10 +119,10 @@ describe("Transactions component", () => {
     });
 
     it("should handle Add modal render when addModalOpen state is toggled", () => {
-      expect(component.find("AddModal").prop("isOpen")).toBe(false);
+      expect(component.find("AddTransactionModal").prop("isOpen")).toBe(false);
 
       component.instance().handleAddModalOpen();
-      expect(component.find("AddModal").prop("isOpen")).toBe(true);
+      expect(component.find("AddTransactionModal").prop("isOpen")).toBe(true);
     });
   });
 });

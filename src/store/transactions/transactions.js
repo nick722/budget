@@ -1,10 +1,15 @@
 import axios from "axios";
 
+export const ADD_TRANSACTION = "transactions/ADD_TRANSACTION";
 export const FETCH_REQUEST = "transactions/FETCH_REQUEST";
 export const FETCH_SUCCESS = "transactions/FETCH_SUCCESS";
 export const FETCH_FAILURE = "transactions/FETCH_FAILURE";
 
 // Action Creators
+export const addTransaction = data => ({
+  type: ADD_TRANSACTION,
+  payload: data
+});
 export const request = () => ({
   type: FETCH_REQUEST
 });
@@ -33,6 +38,11 @@ export const fetchTransactions = () => {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case ADD_TRANSACTION:
+      return {
+        ...state,
+        transactions: [...state.transactions, action.payload]
+      };
     case FETCH_REQUEST:
       return { ...state, isLoading: true, error: null };
     case FETCH_SUCCESS:

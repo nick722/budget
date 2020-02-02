@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 import {
   faChevronLeft,
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import TransactionsList from "./transactions-list/transactions-list";
-import { fetchTransactions } from "../../store/transactions/transactions";
+import {
+  addTransaction,
+  fetchTransactions
+} from "../../store/transactions/transactions";
+import AddTransactionModal from "../add-transaction-modal/add-transaction-modal";
 import BalancePane from "./balance-pane/balance-pane";
 import InstrumentsPane from "./instruments-pane/instruments-pane";
 
 import "./transactions.scss";
-import AddModal from "../add-modal/add-modal";
 
 export class Transactions extends Component {
   state = {
@@ -27,6 +31,8 @@ export class Transactions extends Component {
   };
 
   render() {
+    const { addTransaction, transactions } = this.props;
+
     return (
       <div className="transactions">
         <div className="nave-pane">
@@ -41,23 +47,34 @@ export class Transactions extends Component {
           </div>
         </div>
         <BalancePane />
-        <TransactionsList transactions={this.props.transactions} />
-        <InstrumentsPane />
-        <AddModal
+        <TransactionsList transactions={transactions} />
+        <InstrumentsPane handleAddModalOpen={this.handleAddModalOpen} />
+        <AddTransactionModal
           appElement={document.getElementById("root")}
           isOpen={this.state.addModalOpen}
           onClose={this.handleAddModalOpen}
+          onSubmit={addTransaction}
         />
       </div>
     );
   }
 }
 
+Transactions.defaultProps = {
+  transactions: []
+};
+
+Transactions.propTypes = {
+  addTransaction: PropTypes.func.isRequired,
+  transactions: PropTypes.object
+};
+
 const mapStateToProps = state => ({
   transactions: state.transactions
 });
 
 const mapDispatchToProps = {
+  addTransaction,
   fetchTransactions
 };
 

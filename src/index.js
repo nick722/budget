@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import { IntlProvider } from "react-intl";
+import ReactModal from "react-modal";
 import createStore from "./store/create-store";
 import App from "./App";
 import messages_en from "./locales/messages/en";
 import messages_ru from "./locales/messages/ru";
 import { BrowserRouter as Router } from "react-router-dom";
-import ReactModal from "react-modal";
-
-ReactModal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened
 
 import "./index.css";
+
+ReactModal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened
 
 const messages = {
   en: messages_en,
