@@ -6,6 +6,8 @@ import createStore from "./store/create-store";
 import App from "./App";
 import messages_en from "./locales/messages/en";
 import messages_ru from "./locales/messages/ru";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import "./index.css";
 
 const messages = {
@@ -18,7 +20,9 @@ const language = navigator.language.split(/[-_]/)[0];
 ReactDOM.render(
   <ReduxProvider store={createStore()}>
     <IntlProvider locale={language} messages={messages[language]}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </IntlProvider>
   </ReduxProvider>,
   document.getElementById("root")
