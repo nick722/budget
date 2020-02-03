@@ -10,6 +10,9 @@ const AddTransactionForm = ({ onSubmit }) => {
             <Field name="description">
               {({ input }) => <input type="text" {...input} />}
             </Field>
+            <Field name="amount">
+              {({ input }) => <input type="text" {...input} />}
+            </Field>
             <button type="submit">Submit</button>
           </form>
         );
