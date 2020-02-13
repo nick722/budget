@@ -52,6 +52,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
     "react-test-renderer": "^16.12.0"
   }
 }

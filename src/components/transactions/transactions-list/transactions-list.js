@@ -32,14 +32,14 @@ TransactionsList.propTypes = {
   transactions: PropTypes.shape({
     transactions: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number,
+        id: PropTypes.string,
         type: PropTypes.string,
         category: PropTypes.string,
         description: PropTypes.string,
         date: PropTypes.string,
-        price: PropTypes.number,
-        quantity: PropTypes.number,
-        amount: PropTypes.number
+        price: PropTypes.string,
+        quantity: PropTypes.string,
+        amount: PropTypes.string
       })
     )
   })

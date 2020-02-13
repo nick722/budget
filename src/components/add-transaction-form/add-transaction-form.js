@@ -3,7 +3,7 @@ import { Field, Form } from "react-final-form";
 
 const AddTransactionForm = ({ onSubmit }) => {
   return (
-    <Form onSubmit={onSubmit}>
+    <FormForm onSubmit={onSubmit}>
       {({ handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit}>
@@ -17,7 +17,7 @@ const AddTransactionForm = ({ onSubmit }) => {
           </form>
         );
       }}
-    </Form>
+    </FormForm>
   );
 };
 

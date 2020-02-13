@@ -23,7 +23,7 @@ const initialState = {
   error: null
 };
 
-const requestUrl = "http://localhost:3001/transactions";
+const requestUrl = "http://localhost:3001/";
 
 // Thunk
 export const fetchTransactions = () => {
