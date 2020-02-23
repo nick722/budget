@@ -95,7 +95,7 @@ describe("Transactions component", () => {
 
     it("should have expected props", () => {
       expect(instrumentsPaneComponent.props()).toMatchObject({
-        handleAddModalOpen: component.instance().handleAddModalOpen
+        handleOpenAddModal: component.instance().handleOpenAddModal
       });
     });
   });
@@ -114,14 +114,14 @@ describe("Transactions component", () => {
     it("should have expected props", () => {
       expect(addModalComponent.props()).toMatchObject({
         isOpen: false,
-        onClose: component.instance().handleAddModalOpen
+        onClose: component.instance().handleOpenAddModal
       });
     });
 
     it("should handle Add modal render when addModalOpen state is toggled", () => {
       expect(component.find("AddTransactionModal").prop("isOpen")).toBe(false);
 
-      component.instance().handleAddModalOpen();
+      component.instance().handleOpenAddModal();
       expect(component.find("AddTransactionModal").prop("isOpen")).toBe(true);
     });
   });

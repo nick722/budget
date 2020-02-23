@@ -34,7 +34,11 @@ export class Transactions extends Component {
     }
   }
 
-  handleAddModalOpen = () => {
+  handleOpenAddModal = () => {
+    this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
+  };
+
+  handleCloseAddModal = () => {
     this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
   };
 
@@ -63,11 +67,11 @@ export class Transactions extends Component {
         </div>
         <BalancePane />
         <TransactionsList transactions={transactions} />
-        <InstrumentsPane handleAddModalOpen={this.handleAddModalOpen} />
+        <InstrumentsPane handleOpenAddModal={this.handleOpenAddModal} />
         <AddTransactionModal
           appElement={document.getElementById("root")}
           isOpen={this.state.addModalOpen}
-          onClose={this.handleAddModalOpen}
+          handleCloseAddModal={this.handleCloseAddModal}
           onSubmit={this.handleAddTransaction}
         />
       </div>

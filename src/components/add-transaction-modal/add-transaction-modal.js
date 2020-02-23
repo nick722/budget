@@ -5,7 +5,12 @@ import AddTransactionForm from "../add-transaction-form/add-transaction-form";
 
 import "./add-transaction-modal.scss";
 
-const AddTransactionModal = ({ isOpen, onClose, onSubmit }) => {
+const AddTransactionModal = ({
+  handleCloseAddModal,
+  isOpen,
+  onClose,
+  onSubmit
+}) => {
   return (
     <ReactModal
       className="add-transaction-modal"
@@ -14,6 +19,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSubmit }) => {
     >
       Transaction
       <AddTransactionForm onSubmit={onSubmit} />
+      <button onClick={handleCloseAddModal}>Cancel</button>
     </ReactModal>
   );
 };
