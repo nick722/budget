@@ -35,17 +35,18 @@ export class Transactions extends Component {
   }
 
   handleOpenAddModal = () => {
-    this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
+    this.setState({ addModalOpen: true });
   };
 
   handleCloseAddModal = () => {
-    this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
+    this.setState({ addModalOpen: false });
   };
 
   handleAddTransaction = data => {
     const { isPosting, addTransaction } = this.props;
     if (!isPosting) {
       addTransaction(data);
+      this.handleCloseAddModal();
     }
   };
 
@@ -69,10 +70,10 @@ export class Transactions extends Component {
         <TransactionsList transactions={transactions} />
         <InstrumentsPane handleOpenAddModal={this.handleOpenAddModal} />
         <AddTransactionModal
+          addTransactionFormSubmitHandler={this.handleAddTransaction}
           appElement={document.getElementById("root")}
           isOpen={this.state.addModalOpen}
           handleCloseAddModal={this.handleCloseAddModal}
-          onSubmit={this.handleAddTransaction}
         />
       </div>
     );

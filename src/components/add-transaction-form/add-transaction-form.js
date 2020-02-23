@@ -12,9 +12,9 @@ const descriptionValidation = value => {
   }
 };
 
-const AddTransactionForm = ({ onSubmit }) => {
+const AddTransactionForm = ({ addTransactionFormSubmitHandler }) => {
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={addTransactionFormSubmitHandler}>
       {({ handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit}>
