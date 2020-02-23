@@ -26,13 +26,21 @@ export class Transactions extends Component {
     this.props.fetchTransactions();
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.transactions.isPosting !== prevProps.transactions.isPosting
+    ) {
+      this.props.fetchTransactions();
+    }
+  }
+
   handleAddModalOpen = () => {
     this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
   };
 
   handleAddTransaction = data => {
-    const { isLoading, addTransaction } = this.props;
-    if (!isLoading) {
+    const { isPosting, addTransaction } = this.props;
+    if (!isPosting) {
       addTransaction(data);
     }
   };

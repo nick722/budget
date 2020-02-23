@@ -21,6 +21,7 @@
       "amount": 5000
     }
   ],
-  "isLoading": false,
+  "isGetting": false,
+  "isPosting": false,
   "error": null
 }
