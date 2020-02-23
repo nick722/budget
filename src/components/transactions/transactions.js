@@ -30,6 +30,13 @@ export class Transactions extends Component {
     this.setState(prevState => ({ addModalOpen: !prevState.addModalOpen }));
   };
 
+  handleAddTransaction = data => {
+    const { isLoading, addTransaction } = this.props;
+    if (!isLoading) {
+      addTransaction(data);
+    }
+  };
+
   render() {
     const { addTransaction, transactions } = this.props;
 
@@ -53,7 +60,7 @@ export class Transactions extends Component {
           appElement={document.getElementById("root")}
           isOpen={this.state.addModalOpen}
           onClose={this.handleAddModalOpen}
-          onSubmit={addTransaction}
+          onSubmit={this.handleAddTransaction}
         />
       </div>
     );

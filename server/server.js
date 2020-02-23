@@ -1,16 +1,24 @@
 const express = require("express");
 const server = express();
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 let transactions = [];
 transactions = require("./transactions");
 
+server.use(cors());
+server.use(bodyParser.json());
+
 server.get("/", (req, res, next) => {
-  res.set("Access-Control-Allow-Origin", "*");
   res.send(transactions);
 });
 
 server.post("/", (req, res, next) => {
-  transactions.push({ description: req.body.description });
+  transactions.push({
+    description: req.body.description,
+    amount: req.body.amount,
+    id: +new Date()
+  });
   res.sendStatus(200);
 });
 
