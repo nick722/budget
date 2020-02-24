@@ -17,26 +17,10 @@ const AddTransactionModal = ({
       onRequestClose={handleCloseAddModal}
     >
       <header className="add-transaction-modal__header">Transaction</header>
-      <form>
-        <div className="add-transaction-form__input">
-          <label>Description</label>
-          <input type="text" />
-        </div>
-        <div className="add-transaction-form__input">
-          <label>Amount</label>
-          <input type="text" />
-        </div>
-        <div className="add-transaction-form__footer">
-          <button className="add-transaction-form__submit-button">Ok</button>
-          <button className="add-transaction-form__cancel-button">
-            Cancel
-          </button>
-        </div>
-      </form>
-      {/*<AddTransactionForm*/}
-      {/*  addTransactionFormSubmitHandler={addTransactionFormSubmitHandler}*/}
-      {/*/>*/}
-      {/*<button onClick={handleCloseAddModal}>Cancel</button>*/}
+      <AddTransactionForm
+        addTransactionFormSubmitHandler={addTransactionFormSubmitHandler}
+        handleCloseAddModal={handleCloseAddModal}
+      />
     </ReactModal>
   );
 };

@@ -2,44 +2,79 @@ import React from "react";
 import { Field, Form } from "react-final-form";
 import * as Yup from "yup";
 
-const descriptionValidationSchema = Yup.string().required();
+const inputValidationSchema = Yup.string().required();
 
-const descriptionValidation = value => {
+const inputValidation = value => {
   try {
-    descriptionValidationSchema.validateSync(value);
+    inputValidationSchema.validateSync(value);
   } catch (error) {
     return error.message;
   }
 };
 
-const AddTransactionForm = ({ addTransactionFormSubmitHandler }) => {
+const AddTransactionForm = ({
+  addTransactionFormSubmitHandler,
+  handleCloseAddModal
+}) => {
   return (
     <Form onSubmit={addTransactionFormSubmitHandler}>
       {({ handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit}>
-            <Field name="description" validate={descriptionValidation}>
+            <Field name="description" validate={inputValidation}>
               {({ input, meta }) => (
-                <>
+                <div className="add-transaction-form__input">
+                  <label for="description-input">Description</label>
                   <input
                     aria-describedby="text-control__error"
-                    type="text"
-                    {...input}
+                    id="description-input"
                     onBlur={e => {
                       input.onBlur(e);
                     }}
+                    type="text"
+                    {...input}
                   />
                   {meta.error &&
                     meta.touched && (
                       <p id="text-control__error">{meta.error}</p>
                     )}
-                </>
+                </div>
               )}
             </Field>
-            <Field name="amount">
-              {({ input }) => <input type="text" {...input} />}
+            <Field name="amount" validate={inputValidation}>
+              {({ input, meta }) => (
+                <div className="add-transaction-form__input">
+                  <label for="amount-input">Amount</label>
+                  <input
+                    aria-describedby="text-control__error"
+                    id="amount-input"
+                    onBlur={e => {
+                      input.onBlur(e);
+                    }}
+                    type="text"
+                    {...input}
+                  />
+                  {meta.error &&
+                    meta.touched && (
+                      <p id="text-control__error">{meta.error}</p>
+                    )}
+                </div>
+              )}
             </Field>
-            <button type="submit">Submit</button>
+            <div className="add-transaction-form__footer">
+              <button
+                className="add-transaction-form__submit-button"
+                type="submit"
+              >
+                Submit
+              </button>
+              <button
+                className="add-transaction-form__cancel-button"
+                onClick={handleCloseAddModal}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         );
       }}
