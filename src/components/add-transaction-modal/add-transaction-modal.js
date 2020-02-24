@@ -16,11 +16,12 @@ const AddTransactionModal = ({
       isOpen={isOpen}
       onRequestClose={handleCloseAddModal}
     >
-      Transaction
-      <AddTransactionForm
-        addTransactionFormSubmitHandler={addTransactionFormSubmitHandler}
-      />
-      <button onClick={handleCloseAddModal}>Cancel</button>
+      {/*Transaction*/}
+      <header className="add-transaction-modal__header">Transaction</header>
+      {/*<AddTransactionForm*/}
+      {/*  addTransactionFormSubmitHandler={addTransactionFormSubmitHandler}*/}
+      {/*/>*/}
+      {/*<button onClick={handleCloseAddModal}>Cancel</button>*/}
     </ReactModal>
   );
 };
