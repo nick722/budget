@@ -2,8 +2,8 @@
   margin-block-start: 8rem;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  inline-size: 34rem;
-  block-size: 34rem;
+  inline-size: 15rem;
+  block-size: 11rem;
   background-color: #f0f0f0;
   border: 1px solid #aaaaaa;
   font-size: 0.8rem;
@@ -13,5 +13,33 @@
     padding-block-end: 0.4rem;
     padding-inline-start: 0.7rem;
     background-color: #ffffff;
+  }
+}
+
+.add-transaction-form {
+  &__input {
+    float: right;
+    margin-block-start: 1rem;
+    margin-inline-end: 1rem;
+
+    & input {
+      inline-size: 8rem;
+      margin-inline-start: 0.5rem;
+    }
+  }
+
+  &__footer {
+    clear: both;
+    float: right;
+    margin-block-start: 2rem;
+    margin-inline-end: 1rem;
+
+    & button {
+      inline-size: 5rem;
+    }
+  }
+
+  &__submit-button {
+    margin-inline-end: 0.5rem;
   }
 }
