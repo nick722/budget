@@ -1,4 +1,5 @@
 import React from "react";
+import ReactModal from "react-modal";
 import { shallow } from "enzyme";
 import AddTransactionModal from "./add-transaction-modal";
 import AddTransactionForm from "../add-transaction-form/add-transaction-form";
@@ -16,8 +17,24 @@ describe("AddTransactionModal component", () => {
     component = shallow(<AddTransactionModal {...defaultProps} />);
   });
 
-  it("should render into the document", () => {
-    expect(component).toHaveLength(1);
+  describe("ReactModal", () => {
+    let reactModal;
+
+    beforeEach(() => {
+      reactModal = component.find(ReactModal);
+    });
+
+    it("should render into the document", () => {
+      expect(reactModal).toHaveLength(1);
+    });
+
+    it("should have expected props", () => {
+      expect(reactModal.props()).toMatchObject({
+        className: "add-transaction-modal",
+        isOpen: defaultProps.isOpen,
+        onRequestClose: defaultProps.handleCloseAddModal
+      });
+    });
   });
 
   describe("AddTransactionForm", () => {
