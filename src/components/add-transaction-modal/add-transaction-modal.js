@@ -30,8 +30,9 @@ AddTransactionModal.defaultProps = {
 };
 
 AddTransactionModal.propTypes = {
-  isOpen: PropTypes.bool,
-  onClose: PropTypes.func.isRequired
+  addTransactionFormSubmitHandler: PropTypes.func.isRequired,
+  handleCloseAddModal: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool
 };
 
 export default AddTransactionModal;

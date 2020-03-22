@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 import * as Yup from "yup";
+import PropTypes from "prop-types";
 
 const inputValidationSchema = Yup.string().required();
 
@@ -80,6 +81,11 @@ const AddTransactionForm = ({
       }}
     </Form>
   );
+};
+
+AddTransactionForm.propTypes = {
+  addTransactionFormSubmitHandler: PropTypes.func.isRequired,
+  handleCloseAddModal: PropTypes.func.isRequired
 };
 
 export default AddTransactionForm;
