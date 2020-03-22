@@ -27,14 +27,19 @@ const AddTransactionForm = ({
                 <div className="add-transaction-form__input">
                   <label for="description-input">Description</label>
                   <input
-                    aria-describedby="text-control__error"
+                    aria-describedby="description-input-error"
                     id="description-input"
                     type="text"
                     {...input}
                   />
                   {meta.error &&
                     meta.touched && (
-                      <p id="text-control__error">{meta.error}</p>
+                      <p
+                        className="text-control__error"
+                        id="description-input-error"
+                      >
+                        {meta.error}
+                      </p>
                     )}
                 </div>
               )}
@@ -44,14 +49,19 @@ const AddTransactionForm = ({
                 <div className="add-transaction-form__input">
                   <label for="amount-input">Amount</label>
                   <input
-                    aria-describedby="text-control__error"
+                    aria-describedby="amount-input-error"
                     id="amount-input"
                     type="text"
                     {...input}
                   />
                   {meta.error &&
                     meta.touched && (
-                      <p id="text-control__error">{meta.error}</p>
+                      <p
+                        className="text-control__error"
+                        id="amount-input-error"
+                      >
+                        {meta.error}
+                      </p>
                     )}
                 </div>
               )}
