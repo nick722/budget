@@ -9,20 +9,20 @@ transactions = require("./transactions");
 server.use(cors());
 server.use(bodyParser.json());
 
-server.get("/", (req, res, next) => {
+server.get("/", (req, res) => {
   res.send(transactions);
 });
 
-server.post("/", (req, res, next) => {
+server.post("/", (req, res) => {
   transactions.push({
     description: req.body.description,
     amount: req.body.amount,
-    id: +new Date()
+    id: Date.now()
   });
   res.sendStatus(200);
 });
 
-server.use((req, res, next) => {
+server.use((req, res) => {
   res.status(404).send("<h1>404. Page not found</h1>");
 });
 
