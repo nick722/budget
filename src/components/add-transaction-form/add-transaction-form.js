@@ -29,9 +29,6 @@ const AddTransactionForm = ({
                   <input
                     aria-describedby="text-control__error"
                     id="description-input"
-                    onBlur={e => {
-                      input.onBlur(e);
-                    }}
                     type="text"
                     {...input}
                   />
@@ -49,9 +46,6 @@ const AddTransactionForm = ({
                   <input
                     aria-describedby="text-control__error"
                     id="amount-input"
-                    onBlur={e => {
-                      input.onBlur(e);
-                    }}
                     type="text"
                     {...input}
                   />
