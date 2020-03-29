@@ -35,22 +35,25 @@ const initialState = {
 const url = "http://localhost:3001/";
 
 // Thunks
-export const fetchTransactions = () => dispatch => {
+export const fetchTransactions = () => async dispatch => {
   dispatch(fetchRequest());
-  return axios
-    .get(url)
-    .then(response => dispatch(fetchSuccess(response.data)))
-    .catch(response => dispatch(fetchFailure(response)));
+  try {
+    const response = await axios.get(url);
+    const { data } = response;
+    dispatch(fetchSuccess(data));
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
 };
 
-export const addTransaction = data => dispatch => {
+export const addTransaction = data => async dispatch => {
   dispatch(addRequest());
-  return axios
-    .post(url, data)
-    .then(() => dispatch(addSuccess()))
-    .catch(err => {
-      dispatch(addFailure());
-    });
+  try {
+    await axios.post(url, data);
+    dispatch(addSuccess());
+  } catch (error) {
+    dispatch(addFailure());
+  }
 };
 
 // Reducer
