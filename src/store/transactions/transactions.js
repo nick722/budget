@@ -18,11 +18,9 @@ export const fetchFailure = error => ({ type: FETCH_FAILURE, payload: error });
 const addRequest = () => ({
   type: ADD_REQUEST
 });
-const addSuccess = () => {
-  return {
-    type: ADD_SUCCESS
-  };
-};
+const addSuccess = () => ({
+  type: ADD_SUCCESS
+});
 const addFailure = () => ({
   type: ADD_FAILURE
 });
