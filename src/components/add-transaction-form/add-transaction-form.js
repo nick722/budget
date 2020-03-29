@@ -25,7 +25,7 @@ const AddTransactionForm = ({
             <Field name="description" validate={inputValidation}>
               {({ input, meta }) => (
                 <div className="add-transaction-form__input">
-                  <label for="description-input">Description</label>
+                  <label htmlFor="description-input">Description</label>
                   <input
                     aria-describedby="description-input-error"
                     id="description-input"
@@ -47,7 +47,7 @@ const AddTransactionForm = ({
             <Field name="amount" validate={inputValidation}>
               {({ input, meta }) => (
                 <div className="add-transaction-form__input">
-                  <label for="amount-input">Amount</label>
+                  <label htmlFor="amount-input">Amount</label>
                   <input
                     aria-describedby="amount-input-error"
                     id="amount-input"
