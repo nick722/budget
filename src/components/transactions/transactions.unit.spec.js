@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { Transactions } from "./transactions";
 import TransactionsList from "./transactions-list/transactions-list";
+import AddTransactionModal from "../add-transaction-modal/add-transaction-modal";
 
 const defaultProps = {
   addTransaction: jest.fn(),
@@ -9,24 +10,24 @@ const defaultProps = {
   transactions: {
     transactions: [
       {
-        id: 1,
+        id: "1",
         type: "Income",
         category: "Side Job",
         description: "Side Job",
         date: "12.08.2019",
-        price: 2500,
-        quantity: 1,
-        amount: 2500
+        price: "2500",
+        quantity: "1",
+        amount: "2500"
       },
       {
-        id: 2,
+        id: "2",
         type: "Income",
         category: "Salary",
         description: "Cash advance",
         date: "02.08.2019",
-        price: 5000,
-        quantity: 1,
-        amount: 5000
+        price: "5000",
+        quantity: "1",
+        amount: "5000"
       }
     ]
   }
@@ -58,24 +59,24 @@ describe("Transactions component", () => {
         transactions: {
           transactions: [
             {
-              id: 1,
+              id: "1",
               type: "Income",
               category: "Side Job",
               description: "Side Job",
               date: "12.08.2019",
-              price: 2500,
-              quantity: 1,
-              amount: 2500
+              price: "2500",
+              quantity: "1",
+              amount: "2500"
             },
             {
-              id: 2,
+              id: "2",
               type: "Income",
               category: "Salary",
               description: "Cash advance",
               date: "02.08.2019",
-              price: 5000,
-              quantity: 1,
-              amount: 5000
+              price: "5000",
+              quantity: "1",
+              amount: "5000"
             }
           ]
         }
@@ -95,7 +96,7 @@ describe("Transactions component", () => {
 
     it("should have expected props", () => {
       expect(instrumentsPaneComponent.props()).toMatchObject({
-        handleOpenAddModal: component.instance().handleOpenAddModal
+        handleOpenAddModal: jest.fn()
       });
     });
   });
@@ -107,21 +108,27 @@ describe("Transactions component", () => {
       addModalComponent = component.find("AddTransactionModal");
     });
 
+    afterEach(() => {
+      jest.resetAllMocks();
+    });
+
     it("should render into the document", () => {
       expect(addModalComponent).toHaveLength(1);
     });
 
     it("should have expected props", () => {
       expect(addModalComponent.props()).toMatchObject({
+        addTransactionFormSubmitHandler: component.instance()
+          .handleAddTransaction,
         isOpen: false,
-        onClose: component.instance().handleOpenAddModal
+        handleCloseAddModal: component.instance().handleCloseAddModal
       });
     });
 
     it("should handle Add modal render when addModalOpen state is toggled", () => {
       expect(component.find("AddTransactionModal").prop("isOpen")).toBe(false);
-
       component.instance().handleOpenAddModal();
+
       expect(component.find("AddTransactionModal").prop("isOpen")).toBe(true);
     });
   });
