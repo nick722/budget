@@ -8,7 +8,7 @@ import "./header.scss";
 
 const Header = () => {
   return (
-    <header className="home-page-header">
+    <header>
       <div className="logo">
         <FontAwesomeIcon icon={faWallet} />
       </div>
