@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+// src / components / add - transaction - form / add - transaction - form.js;
 
 let transactions = [];
 transactions = require("./transactions");
