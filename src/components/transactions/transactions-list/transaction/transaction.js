@@ -19,8 +19,7 @@ export const Transaction = ({
 
 Transaction.defaultProps = {
   amount: 0,
-  description: "",
-  type: ""
+  description: ""
 };
 
 Transaction.propTypes = {

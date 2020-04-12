@@ -143,6 +143,7 @@ Array [
     >
       <button
         className="add-button"
+        onClick={[Function]}
       >
         Add transaction
       </button>
@@ -297,6 +298,7 @@ Array [
     >
       <button
         className="add-button"
+        onClick={[Function]}
       >
         Add transaction
       </button>
@@ -451,6 +453,7 @@ Array [
     >
       <button
         className="add-button"
+        onClick={[Function]}
       >
         Add transaction
       </button>

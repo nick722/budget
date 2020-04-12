@@ -1,7 +1,8 @@
 import { initialState } from "./transactions.json";
 
 const exampleState = {
-  isLoading: false,
+  isGetting: false,
+  isPosting: false,
   error: null,
   transactions: [
     {

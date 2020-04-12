@@ -13,6 +13,7 @@ import { exampleState, initialState, responseData } from "./__mocks__";
 jest.mock("axios", () => ({ get: jest.fn(() => Promise.resolve()) }));
 
 describe("Transactions store", () => {
+  //todo fix tests
   const error = new Error("something went wrong!");
 
   describe("Action creators", () => {
@@ -58,7 +59,7 @@ describe("Transactions store", () => {
       expect(result).toEqual({
         ...prevState,
         error: null,
-        isLoading: true
+        isGetting: true
       });
     });
 
@@ -71,7 +72,7 @@ describe("Transactions store", () => {
       expect(result).toEqual({
         ...initialState,
         error: error,
-        isLoading: false,
+        isGetting: false,
         transactions: []
       });
     });
