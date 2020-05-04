@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "server": "node server/server.js",
@@ -55,7 +56,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.3",
     "react-test-renderer": "^16.12.0"
   }
 }

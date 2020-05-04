@@ -6,6 +6,9 @@ Application to keep track of personal's income and expenses.
 - Current money balance should be shown
 - There should be categories for transactions
 
+To run with nodemon:
+npm run dev
+
 TODO STEP 1:
 
 - [v] Get static data from the node server
