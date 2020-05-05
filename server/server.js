@@ -5,13 +5,13 @@ const bodyParser = require("body-parser");
 const controllers = require("./controllers");
 // src / components / add - transaction - form / add - transaction - form.js;
 
-// let transactions = [];
-// transactions = require("./transactions.json");
+let transactions = [];
+transactions = require("./transactions.json");
 
 server.use(cors());
 server.use(bodyParser.json());
 
-server.use("/", controllers());
+server.use("/", controllers(transactions));
 
 server.use((req, res) => {
   res.status(404).send("<h1>404. Page not found</h1>");
