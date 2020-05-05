@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const controller = require("./controller");
+
+const path = "/";
+const httpMethod = "post";
 
 module.exports = transactions => {
-  router.post("/", (req, res) => {
-    transactions.push({
-      description: req.body.description,
-      amount: req.body.amount,
-      id: Date.now()
-    });
-    res.sendStatus(200);
-  });
-
+  router[httpMethod](path, controller(transactions));
   return router;
 };
